@@ -1,0 +1,401 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  margin: 0;
+  color: #444;
+}
+
+/* TOPBAR */
+.topbar-container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.indices-container {
+  display: flex;
+  gap: 30px;
+}
+
+.nifty,
+.sensex {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  align-items: center;
+}
+
+.index {
+  font-weight: 600;
+  color: #666;
+}
+
+.index-points {
+  color: #df514c;
+  font-weight: 500;
+}
+
+/* MENU */
+.menu-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-container img {
+  width: 30px;
+}
+
+.menus {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.menus ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.menu:hover,
+.menu.selected {
+  color: #ff5722;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #eaeaea;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+}
+
+.username {
+  font-size: 12px;
+  color: #666;
+}
+
+/* DASHBOARD LAYOUT */
+.dashboard-container {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.watchlist-container {
+  width: 35%;
+  border-right: 1px solid #eee;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.search {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 13px;
+}
+
+.counts {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.content {
+  width: 65%;
+  padding: 30px 40px;
+  overflow-y: auto;
+}
+
+/* SUMMARY / DASHBOARD */
+.username h6 {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.section span p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+.data {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.first h3 {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.first p {
+  font-size: 12px;
+  color: #999;
+}
+
+.second p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.second span {
+  font-weight: 600;
+  color: #333;
+  margin-left: 10px;
+}
+
+/* ORDERS PAGE (Matches Tutorial Video) */
+.orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+}
+
+.no-orders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.no-orders p {
+  color: #9b9b9b;
+  font-size: 14px;
+}
+
+.btn {
+  background-color: #387ed1;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 10px 22px;
+  border-radius: 3px;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: #2868b4;
+}
+
+/* FUNDS PAGE */
+.funds {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.funds p {
+  color: #9b9b9b;
+  font-size: 13px;
+}
+
+.btn-green {
+  background-color: #4caf50;
+  margin-right: 15px;
+}
+
+.btn-green:hover {
+  background-color: #43a047;
+}
+
+.btn-blue {
+  background-color: #387ed1;
+}
+
+/* TABLES (Holdings & Positions) */
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.order-table {
+  width: 100%;
+}
+
+.order-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-table th {
+  text-align: left;
+  padding: 12px 10px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #9b9b9b;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+}
+
+.order-table td {
+  padding: 14px 10px;
+  font-size: 13px;
+  color: #444;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.order-table tr:hover {
+  background-color: #fbfbfb;
+}
+
+.profit {
+  color: #4caf50 !important;
+}
+
+.loss {
+  color: #df514c !important;
+}
+/* WATCHLIST LIST & ITEMS */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  position: relative;
+  padding: 14px 18px;
+  border-bottom: 1px solid #f2f2f2;
+  cursor: pointer;
+  display: block;
+}
+
+.list li:hover {
+  background-color: #fafafa;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  width: 100%;
+}
+
+.itemInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.up {
+  color: #4caf50 !important;
+}
+
+.down {
+  color: #df514c !important;
+}
+
+.percent {
+  font-size: 12px;
+  color: #9b9b9b;
+}
+
+.price {
+  font-weight: 500;
+  color: #444;
+  min-width: 55px;
+  text-align: right;
+}
+
+.actions {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  background-color: #fafafa;
+  padding-left: 10px;
+}
+
+.actions button {
+  border: none;
+  padding: 5px 12px;
+  border-radius: 3px;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.buy {
+  background-color: #4184f3;
+  color: white;
+}
+
+.sell {
+  background-color: #ff5722;
+  color: white;
+}
+
+.action {
+  background: transparent;
+  color: #666;
+  display: inline-flex;
+  align-items: center;
+}
+
+.action .icon {
+  font-size: 18px !important;
+}

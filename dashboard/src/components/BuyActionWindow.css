@@ -1,0 +1,83 @@
+.containerClass {
+  --blue: #4184f3;
+  --white: #fff;
+  --grey: #9b9b9b;
+  --light-grey: #e0e0e0;
+
+  position: fixed;
+  bottom: 60px;
+  left: 35%;
+  width: 380px;
+  background-color: var(--white);
+  border: 1px solid var(--light-grey);
+  border-radius: 6px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  font-family: inherit;
+}
+
+.regular-order {
+  padding: 20px;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.inputs fieldset {
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  padding: 4px 8px;
+  width: 48%;
+}
+
+.inputs legend {
+  font-size: 11px;
+  color: var(--grey);
+  padding: 0 4px;
+}
+
+.inputs input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #444;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fbfbfb;
+  padding: 12px 20px;
+  border-top: 1px solid var(--light-grey);
+  border-radius: 0 0 6px 6px;
+}
+
+.buttons span {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+.btn {
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.btn-blue {
+  background-color: var(--blue);
+  color: var(--white);
+  margin-right: 8px;
+}
+
+.btn-grey {
+  background-color: var(--light-grey);
+  color: #444;
+}
