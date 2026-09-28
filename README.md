@@ -39,3 +39,13 @@ The repository is structured into three core micro-applications:
 ```bash
 git clone [https://github.com/saumil100504/KiteNest-Trading-Platform.git](https://github.com/saumil100504/KiteNest-Trading-Platform.git)
 cd KiteNest-Trading-Platform
+
+
+
+
+# KiteNest — Full-Stack Equity Trading & Portfolio Platform
+
+> 🚀 **Live Deployments:**
+> - **Landing Portal:** [https://kitenest-frontend.onrender.com](https://kitenest-frontend.onrender.com)
+> - **Trading Dashboard:** [https://kitenest-dashboard.onrender.com](https://kitenest-dashboard.onrender.com)
+> - **Backend API:** [https://kitenest-backend.onrender.com](https://kitenest-backend.onrender.com)
