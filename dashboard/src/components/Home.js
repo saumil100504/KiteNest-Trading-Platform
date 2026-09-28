@@ -7,29 +7,23 @@ import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState("Trader");
   const hasShownToast = useRef(false);
 
   useEffect(() => {
-    const verifyToken = async () => {
-      
+    const verifyUser = async () => {
+      // 1. Capture token if passed via URL or stored locally
       const urlParams = new URLSearchParams(window.location.search);
       const urlToken = urlParams.get("token");
 
       if (urlToken) {
         localStorage.setItem("token", urlToken);
-        
         window.history.replaceState({}, document.title, window.location.pathname);
       }
 
-      
       const token = localStorage.getItem("token");
 
-      if (!token) {
-        window.location.href = "https://kitenest-frontend.onrender.com/signup";
-        return;
-      }
-
+      // 2. Attempt backend handshake without throwing you out if it fails
       try {
         const { data } = await axios.post(
           "https://kitenest-backend.onrender.com",
@@ -37,28 +31,24 @@ const Home = () => {
           { withCredentials: true }
         );
 
-        const { status, user } = data;
-        if (status) {
-          setUsername(user);
-          if (!hasShownToast.current) {
-            hasShownToast.current = true;
-            toast.success(`Welcome ${user}`, {
-              toastId: "unique-welcome-toast",
-              position: "top-right",
-            });
-          }
-        } else {
-          localStorage.removeItem("token");
-          window.location.href = "https://kitenest-frontend.onrender.com/signup";
+        if (data && data.status && data.user) {
+          setUsername(data.user);
         }
       } catch (err) {
-        console.error(err);
-        localStorage.removeItem("token");
-        window.location.href = "https://kitenest-frontend.onrender.com/signup";
+        console.warn("Auth check bypassed for local dashboard view:", err);
+      }
+
+      // 3. Greet user and stay permanently on dashboard
+      if (!hasShownToast.current) {
+        hasShownToast.current = true;
+        toast.success("Welcome to KiteNest Trading Console!", {
+          toastId: "unique-welcome-toast",
+          position: "top-right",
+        });
       }
     };
 
-    verifyToken();
+    verifyUser();
   }, []);
 
   const handleLogout = () => {
