@@ -23,7 +23,7 @@ module.exports.Signup = async (req, res) => {
 
     res
       .status(201)
-      .json({ message: "User signed in successfully", success: true, user });
+      .json({ message: "User signed in successfully", success: true, token,user: user.username || user, });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

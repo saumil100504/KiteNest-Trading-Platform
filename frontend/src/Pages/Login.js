@@ -42,12 +42,14 @@ const Login = () => {
         { withCredentials: true }
       );
 
-      const { success, message } = data;
+      const { success, message ,token} = data;
       if (success) {
+        if(token){
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3002"; // Redirect to Dashboard
+          window.location.href = "https://kitenest-dashboard.onrender.com"; // Redirect to Dashboard
         }, 1000);
+      }
       } else {
         handleError(message);
       }

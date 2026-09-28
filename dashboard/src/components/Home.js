@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,13 +7,25 @@ import Dashboard from "./Dashboard";
 import TopBar from "./TopBar";
 
 const Home = () => {
-  const [cookies, , removeCookie] = useCookies(["token"]);
   const [username, setUsername] = useState("");
   const hasShownToast = useRef(false);
 
   useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
+    const verifyToken = async () => {
+      
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlToken = urlParams.get("token");
+
+      if (urlToken) {
+        localStorage.setItem("token", urlToken);
+        
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      
+      const token = localStorage.getItem("token");
+
+      if (!token) {
         window.location.href = "https://kitenest-frontend.onrender.com/signup";
         return;
       }
@@ -22,7 +33,7 @@ const Home = () => {
       try {
         const { data } = await axios.post(
           "https://kitenest-backend.onrender.com",
-          {},
+          { token },
           { withCredentials: true }
         );
 
@@ -37,21 +48,21 @@ const Home = () => {
             });
           }
         } else {
-          removeCookie("token", { path: "/" });
+          localStorage.removeItem("token");
           window.location.href = "https://kitenest-frontend.onrender.com/signup";
         }
       } catch (err) {
         console.error(err);
-        removeCookie("token", { path: "/" });
+        localStorage.removeItem("token");
         window.location.href = "https://kitenest-frontend.onrender.com/signup";
       }
     };
 
-    verifyCookie();
-  }, [cookies, removeCookie]);
+    verifyToken();
+  }, []);
 
   const handleLogout = () => {
-    removeCookie("token", { path: "/" });
+    localStorage.removeItem("token");
     window.location.href = "https://kitenest-frontend.onrender.com/login";
   };
 
