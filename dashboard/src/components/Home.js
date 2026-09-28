@@ -15,13 +15,13 @@ const Home = () => {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
-        window.location.href = "http://localhost:3000/signup";
+        window.location.href = "https://kitenest-frontend.onrender.com/signup";
         return;
       }
 
       try {
         const { data } = await axios.post(
-          "http://localhost:3003",
+          "https://kitenest-backend.onrender.com",
           {},
           { withCredentials: true }
         );
@@ -38,12 +38,12 @@ const Home = () => {
           }
         } else {
           removeCookie("token", { path: "/" });
-          window.location.href = "http://localhost:3000/signup";
+          window.location.href = "https://kitenest-frontend.onrender.com/signup";
         }
       } catch (err) {
         console.error(err);
         removeCookie("token", { path: "/" });
-        window.location.href = "http://localhost:3000/signup";
+        window.location.href = "https://kitenest-frontend.onrender.com/signup";
       }
     };
 
@@ -52,7 +52,7 @@ const Home = () => {
 
   const handleLogout = () => {
     removeCookie("token", { path: "/" });
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://kitenest-frontend.onrender.com/login";
   };
 
   return (

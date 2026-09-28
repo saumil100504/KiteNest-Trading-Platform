@@ -11,7 +11,7 @@ const Holdings = () => {
 
 
  useEffect(() => {
-   axios.get("http://localhost:3003/allHoldings").then((res) => {
+  axios.get("https://kitenest-backend.onrender.com/allHoldings").then((res) => {
     console.log(res.data);
     setAllHoldings(res.data);
    });

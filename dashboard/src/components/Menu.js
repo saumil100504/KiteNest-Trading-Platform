@@ -17,7 +17,7 @@ const Menu = () => {
 
   const handleLogout = () => {
     removeCookie("token", { path: "/" });
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "https://kitenest-frontend.onrender.com/login";
   };
 
   const menuClass = "menu";

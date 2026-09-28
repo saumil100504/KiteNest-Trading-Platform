@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3003/login",
+        "https://kitenest-backend.onrender.com/login",
         { ...inputValue },
         { withCredentials: true }
       );
@@ -39,7 +39,8 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          window.location.href = "http://localhost:3002"; // Redirects to Dashboard
+          
+          window.location.href = "https://kitenest-dashboard.onrender.com"; // Redirects to Dashboard
         }, 1200);
       } else {
         handleError(message);
